@@ -72,8 +72,8 @@
     nav{display:flex;align-items:center;gap:20px;font-size:.94rem;font-weight:850}
     nav a{text-decoration:none}
     .nav-cta{min-height:42px;padding:0 16px;border-radius:8px;color:white;background:var(--blue);display:inline-flex;align-items:center}
-    .hero{position:relative;overflow:hidden;min-height:calc(100vh - 70px);padding:clamp(54px,7vw,90px) clamp(20px,5vw,72px) clamp(36px,5vw,64px);background:linear-gradient(90deg,rgba(255,253,247,.96) 0%,rgba(255,253,247,.88) 42%,rgba(223,248,255,.66) 100%),url("assets/footer background.jpg") center/cover no-repeat}
-    .hero:after{content:"";position:absolute;inset:auto 0 0;height:92px;background:repeating-linear-gradient(0deg,rgba(17,169,191,.22) 0 10px,rgba(255,255,255,.28) 10px 22px);opacity:.8}
+    .hero{position:relative;overflow:hidden;min-height:calc(100vh - 70px);padding:clamp(54px,7vw,90px) clamp(20px,5vw,72px) clamp(36px,5vw,64px);background:linear-gradient(90deg,rgba(255,253,247,.96) 0%,rgba(255,253,247,.88) 42%,rgba(223,248,255,.66) 100%),url("assets/footer background.jpg") center/cover no-repeat;animation:bgDrift 28s ease-in-out infinite alternate}
+    .hero:after{content:"";position:absolute;inset:auto 0 0;height:92px;background:repeating-linear-gradient(0deg,rgba(17,169,191,.22) 0 10px,rgba(255,255,255,.28) 10px 22px);opacity:.8;animation:waveSlide 8s linear infinite}
     .hero-inner{position:relative;z-index:1;display:grid;width:min(1180px,100%);margin:auto;grid-template-columns:minmax(0,1fr) minmax(320px,.9fr);gap:clamp(34px,6vw,76px);align-items:center}
     .eyebrow{margin:0 0 14px;color:var(--blue);font-size:.78rem;font-weight:950;letter-spacing:.12em;text-transform:uppercase}
     h1,h2,h3,p{margin-top:0}
@@ -90,7 +90,10 @@
     .secondary{color:var(--ink);background:var(--sun)}
     .ghost{color:var(--blue);border-color:rgba(8,104,199,.28);background:rgba(255,255,255,.78)}
     .hero-books{position:relative;min-height:520px}
-    .hero-book{position:absolute;filter:drop-shadow(0 24px 34px rgba(16,47,84,.2));animation:float 5.4s ease-in-out infinite}
+    .hero-book{position:absolute;filter:drop-shadow(0 24px 34px rgba(16,47,84,.2));animation:float 5.4s ease-in-out infinite;transition:transform .32s ease,filter .32s ease}
+    .hero-book:hover{animation-play-state:paused;filter:drop-shadow(0 30px 40px rgba(16,47,84,.26))}
+    .hero-book.one:hover{transform:translateY(-18px) rotate(1.5deg) scale(1.04)}
+    .hero-book.two:hover{transform:translateY(-16px) rotate(-3deg) scale(1.07)}
     .hero-book.one{right:10%;top:0;width:min(430px,80vw)}
     .hero-book.two{right:0;bottom:4px;width:min(260px,52vw);animation-delay:-1.5s}
     .availability{display:inline-flex;gap:10px;align-items:center;margin-top:22px;padding:10px 14px;border:1px solid rgba(8,104,199,.18);border-radius:8px;background:white;font-weight:900}
@@ -104,38 +107,49 @@
     .split{display:grid;grid-template-columns:minmax(310px,.85fr) minmax(0,1fr);gap:clamp(30px,6vw,74px);align-items:center}
     .section-head{max-width:760px;margin-bottom:34px}
     .book-card{display:grid;grid-template-columns:minmax(250px,.72fr) minmax(0,1fr);gap:28px;align-items:center;padding:clamp(22px,4vw,42px)}
-    .book-card img{filter:drop-shadow(0 18px 26px rgba(16,47,84,.16))}
+    .book-card img{filter:drop-shadow(0 18px 26px rgba(16,47,84,.16));transition:transform .32s ease,filter .32s ease}
+    .book-card img:hover,.mini-book img:hover{transform:translateY(-10px) rotate(-1.5deg) scale(1.035);filter:drop-shadow(0 26px 34px rgba(16,47,84,.22))}
     .book-points{display:grid;gap:12px;margin:24px 0 0;padding:0;list-style:none}
     .book-points li{padding-left:30px;position:relative;font-weight:760}
     .book-points li:before{content:"";position:absolute;left:0;top:.55em;width:12px;height:12px;border-radius:50%;background:var(--teal)}
     .mini-series{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:24px}
     .mini-book{padding:22px;text-align:center}
-    .mini-book img{max-height:290px;object-fit:contain}
+    .mini-book img{max-height:290px;object-fit:contain;transition:transform .32s ease,filter .32s ease;filter:drop-shadow(0 14px 22px rgba(16,47,84,.14))}
     .mini-book .button{margin-top:12px}
     .author{background:linear-gradient(180deg,#f6fcff,#fffdf7)}
     .author-card{overflow:hidden}
     .author-card img{display:block;width:100%}
     .author-copy{max-width:690px}
     .quote-line{margin-top:18px;padding:18px 20px;border-left:5px solid var(--sun);background:white;border-radius:8px;font-weight:850}
-    .final{position:relative;color:white;background:linear-gradient(rgba(10,61,117,.86),rgba(8,104,199,.78)),url("assets/footer background.jpg") center/cover no-repeat}
+    .final{position:relative;color:white;background:linear-gradient(rgba(10,61,117,.86),rgba(8,104,199,.78)),url("assets/footer background.jpg") center/cover no-repeat;animation:bgDrift 30s ease-in-out infinite alternate}
     .final h2{color:white}
     .final p{max-width:760px;margin-inline:auto;font-size:1.14rem}
     .center{text-align:center}
-    footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;padding:34px clamp(20px,5vw,72px);color:white;background:linear-gradient(rgba(15,39,68,.9),rgba(15,39,68,.9)),url("assets/footer background.jpg") center bottom/cover no-repeat}
+    footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;padding:34px clamp(20px,5vw,72px);color:white;background:linear-gradient(rgba(15,39,68,.9),rgba(15,39,68,.9)),url("assets/footer background.jpg") center bottom/cover no-repeat;animation:bgDrift 34s ease-in-out infinite alternate}
     footer p{margin:0}
     footer a{font-weight:850}
     .fade-up{animation:fadeUp .75s ease both}
     .delay-1{animation-delay:.12s}
     .delay-2{animation-delay:.24s}
+    .cursor-orb,.cursor-ring,.cursor-spark{position:fixed;left:0;top:0;z-index:9999;pointer-events:none;opacity:0;transform:translate(-50%,-50%)}
+    .cursor-orb{width:10px;height:10px;border-radius:50%;background:var(--sun);box-shadow:0 0 16px rgba(255,212,95,.8)}
+    .cursor-ring{width:34px;height:34px;border:2px solid rgba(8,104,199,.34);border-radius:50%;transition:width .2s ease,height .2s ease,border-color .2s ease,opacity .2s ease}
+    .cursor-ring.is-active{width:48px;height:48px;border-color:rgba(17,169,191,.55)}
+    .cursor-spark{width:7px;height:7px;border-radius:50%;background:rgba(17,169,191,.7);animation:sparkFade .62s ease forwards}
     @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
     @keyframes float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(1deg)}}
+    @keyframes bgDrift{from{background-position:center center}to{background-position:58% center}}
+    @keyframes waveSlide{from{background-position:0 0}to{background-position:0 44px}}
+    @keyframes sparkFade{from{opacity:.72;transform:translate(-50%,-50%) scale(1)}to{opacity:0;transform:translate(-50%,-50%) scale(.25)}}
     @media(max-width:960px){
       .site-header{position:relative;align-items:flex-start}
       nav{flex-wrap:wrap;justify-content:flex-end}
       .hero-inner,.split,.book-card{grid-template-columns:1fr}
       .hero-books{order:-1;min-height:400px}
       .hero-book{animation:none}
+      .hero-book:hover{animation:none}
       .hero-book.one{left:50%;right:auto;transform:translateX(-50%);width:min(340px,78vw)}
+      .hero-book.one:hover{transform:translateX(-50%) translateY(-10px) scale(1.03)}
       .hero-book.two{right:4%;width:min(200px,44vw)}
       .intro-row,.mini-series{grid-template-columns:1fr}
     }
@@ -150,10 +164,16 @@
     }
     @media(prefers-reduced-motion:reduce){
       *,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+      .cursor-orb,.cursor-ring,.cursor-spark{display:none!important}
+    }
+    @media(pointer:coarse){
+      .cursor-orb,.cursor-ring,.cursor-spark{display:none!important}
     }
   </style>
 </head>
 <body>
+  <div class="cursor-orb" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
   <header class="site-header">
     <a class="brand" href="#home" aria-label="Percy Pelican home"><span class="brand-mark">P</span><span>Percy Pelican</span></a>
     <nav aria-label="Main navigation">
@@ -266,5 +286,65 @@
     <div><strong>The Percy Pelican Series</strong><p>Children's books by Marc P. Silvestri</p></div>
     <p><a href="mailto:marcus@percypelican.com">marcus@percypelican.com</a> | <a href="https://www.amazon.com/dp/B0H2TB548S">Amazon</a> | Powered by <a href="https://SOURCEIISTUDIO.com">SOURCEIISTUDIO.com</a></p>
   </footer>
+  <script>
+    (() => {
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const touchDevice = window.matchMedia("(pointer: coarse)").matches;
+      if (reduceMotion || touchDevice) return;
+
+      const orb = document.querySelector(".cursor-orb");
+      const ring = document.querySelector(".cursor-ring");
+      if (!orb || !ring) return;
+
+      let mouseX = window.innerWidth / 2;
+      let mouseY = window.innerHeight / 2;
+      let ringX = mouseX;
+      let ringY = mouseY;
+      let lastSpark = 0;
+
+      const showCursor = () => {
+        orb.style.opacity = "1";
+        ring.style.opacity = "1";
+      };
+
+      const move = (event) => {
+        mouseX = event.clientX;
+        mouseY = event.clientY;
+        showCursor();
+
+        const now = performance.now();
+        if (now - lastSpark > 46) {
+          lastSpark = now;
+          const spark = document.createElement("span");
+          spark.className = "cursor-spark";
+          spark.style.left = `${mouseX}px`;
+          spark.style.top = `${mouseY}px`;
+          document.body.appendChild(spark);
+          setTimeout(() => spark.remove(), 700);
+        }
+      };
+
+      const animate = () => {
+        ringX += (mouseX - ringX) * 0.18;
+        ringY += (mouseY - ringY) * 0.18;
+        orb.style.left = `${mouseX}px`;
+        orb.style.top = `${mouseY}px`;
+        ring.style.left = `${ringX}px`;
+        ring.style.top = `${ringY}px`;
+        requestAnimationFrame(animate);
+      };
+
+      document.addEventListener("mousemove", move);
+      document.addEventListener("mouseleave", () => {
+        orb.style.opacity = "0";
+        ring.style.opacity = "0";
+      });
+      document.querySelectorAll("a, button, .hero-book, .book-card img, .mini-book img").forEach((item) => {
+        item.addEventListener("mouseenter", () => ring.classList.add("is-active"));
+        item.addEventListener("mouseleave", () => ring.classList.remove("is-active"));
+      });
+      animate();
+    })();
+  </script>
 </body>
 </html>
